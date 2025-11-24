@@ -1,0 +1,37 @@
+# RVM-CPP
+
+C++ implementation of the RVM (Runtime Version Manager) for OpenFin on Linux.
+
+## Dependencies
+
+Install required libraries:
+
+```bash
+sudo apt-get install libcurl4-openssl-dev libzip-dev nlohmann-json3-dev build-essential
+```
+
+## Build
+
+```bash
+./build.sh
+```
+
+## Run
+
+```bash
+./rvm-cpp --config=<URL> --runtime-dir=<directory>
+```
+
+Example:
+```bash
+./rvm-cpp --config=https://cdn.openfin.co/release/apps/openfin/processmanager/app.json --runtime-dir=/home/wenjun/OpenFin/Runtime
+```
+
+## Features
+
+- Fetches application configuration from URLs
+- Auto-downloads missing OpenFin runtimes
+- Launches multiple applications with comma-separated configs
+- Unix socket server for IPC (/tmp/OpenFinRVM_Messaging)
+- Handles desktop-owner-settings and RVM info requests
+- CPU architecture detection (x64/arm64)
