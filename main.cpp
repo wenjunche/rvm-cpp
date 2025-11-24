@@ -440,7 +440,7 @@ void processMessage(const std::string& message, const std::string& socketPath, c
         std::string messageId = jsonObj.value("messageId", "");
         std::string action = jsonObj["payload"].value("action", "");
         
-        logWithTimestamp("Message ID: " + runtimeSocketName);
+        logWithTimestamp("Runtime Scoket Name: " + runtimeSocketName);
         logWithTimestamp("Topic: " + topic);
         logWithTimestamp("Payload Message ID: " + messageId);
         logWithTimestamp("Action: " + action);
@@ -661,10 +661,10 @@ int main(int argc, char* argv[]) {
     // Launch all applications
     logWithTimestamp("All runtimes downloaded. Launching " + std::to_string(launchQueue.size()) + " application(s)...");
     
-    for (const auto& info : launchQueue) {
-        std::thread(launchApplication, info.runtimePath, info.configURL, 
-                   info.runtimeArgs, info.runtimeVersion).detach();
-    }
+    // for (const auto& info : launchQueue) {
+    //     std::thread(launchApplication, info.runtimePath, info.configURL, 
+    //                info.runtimeArgs, info.runtimeVersion).detach();
+    // }
     
     // Start socket server
     std::string socketPath = "/tmp/OpenFinRVM_Messaging";
