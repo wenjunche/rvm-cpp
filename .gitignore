@@ -36,6 +36,8 @@
 *.exe
 *.out
 *.app
+rvm-cpp
+test_socket
 
 # debug information files
 *.dwo
